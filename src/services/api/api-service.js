@@ -1,11 +1,11 @@
 export default class TodoService {
   _baseUrl = ' https://jsonplaceholder.typicode.com';
 
-  getUsers = () => {
-    return fetch(`${this._baseUrl}/users`).then(res => res.json());
+  _getData = url => {
+    return fetch(`${this._baseUrl}/${url}`).then(res => res.json());
   };
 
-  getTodos = () => {
-    return fetch(`${this._baseUrl}/todos`).then(res => res.json());
-  };
+  getUsers = () => this._getData('users');
+
+  getTodos = () => this._getData('todos');
 }
